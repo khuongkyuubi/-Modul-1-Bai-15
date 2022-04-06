@@ -12,22 +12,26 @@
 <script>
     function isPrime(number) {
         if (number < 2 || isNaN(number)) {
-            return number + " is not prime";
         } else {
-            for (let i = 2; i < Math.sqrt(number); i++) {
+            for (let i = 2; i <= Math.sqrt(number); i++) {
                 if (number % i === 0) {
-                    return number + " is not prime";
+                    return;
                 }
             }
-            return number + " is prime";
+            return number;
         }
     }
 
-    console.log(isPrime(2));
-    console.log(isPrime(3));
-    console.log(isPrime(10));
-    console.log(isPrime(-10));
-    console.log(isPrime("hello"));
+    function findPrimeInALimit(limitNumber) {
+        for (let i = 2; i < limitNumber; i++) {
+            if (isPrime(i)) {
+                document.write(isPrime(i) + " ");
+            }
+        }
+
+    }
+
+    findPrimeInALimit(10000);
 
 </script>
 </html>

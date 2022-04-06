@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+    let s1 = "aabcc";
+    let s2 = "adcaa";
+
+    function solution(a, b) {
+        let count = 0;
+        const skip = [];
+        for (let i = 0; i < a.length; i++) {
+            for (let j = 0; j < b.length; j++) {
+                let temp = true;
+                for (let k of skip) {
+                    if (j === k) {
+                        temp = false;
+                        break;
+                    }
+                }
+                if (temp === true) {
+                    if (a[i] === b[j]) {
+                        count++;
+                        skip.push(j);
+                        break;
+                    }
+                } else {
+                    break;
+                }
+
+
+            }
+        }
+
+        return count;
+    }
+
+    console.log(solution(s1, s2));
+
+</script>
+</html>
