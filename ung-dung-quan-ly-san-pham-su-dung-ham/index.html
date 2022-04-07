@@ -9,8 +9,23 @@
         #allProduct td:first-child {
             width: 200px;
         }
+
+        #allProduct td:last-child {
+            text-align: center;
+        }
+
         #allProduct tr:nth-child(even) {
             background-color: #f0f0f1;
+        }
+
+        #allProduct th:first-child {
+            width: 200px;
+            text-align: left;
+        }
+
+        #allProduct th:last-child {
+            color: red;
+            text-align: right;
         }
 
     </style>
@@ -43,6 +58,11 @@
     // Hàm hiển thị sản phẩm
     function displayAllProduct() {
         let result = "";
+        result += `<tr>
+                   <th>Product name</th>
+                   <th></th>
+                   <th>${allProduct.length} products</th>
+                   </tr>`
         // let length = allProduct.length;
         let table = document.getElementById("allProduct");
         for (let i = allProduct.length - 1; i >= 0; i--) {
